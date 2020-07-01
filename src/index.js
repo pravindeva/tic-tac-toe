@@ -137,25 +137,24 @@ class Game extends React.Component {
     } else {
       status = "Next player:" + (this.state.xIsNext ? "X" : "O");
     }
-    const playAgain =
-      (status === "Draw" || winner)
-        ? this.renderRestart()
-        : null;
+    const playAgain = status === "Draw" || winner ? this.renderRestart() : null;
 
     return (
-      <div className="game f3 tc b code">
-        <div className="game-board">
-          <div className="tc ma3">{status}</div>
+      <div>
+        <header className="f4 tc b code mb4 mt2">Tic-Tac-Toe</header>
+        <div className="game b code">
+        <div className="game-board tc">
+          <div className="status">{status}</div>
           <Board
             squares={current.squares}
             onClick={(i) => this.handleClick(i)}
           />
-          <div className="restart ma4 grow">{playAgain}</div>
+          <div className="restart mt3">{playAgain}</div>
         </div>
-        <div className="game-info ma3">
+        <div className="game-info">
           <ol>{moves}</ol>
         </div>
-      </div>
+      </div></div>
     );
   }
 }
